@@ -7,12 +7,14 @@ body{
 	font-weight: 400;
 	font-size: 14px;
 }
-nav, .second-line, .logo, .main_menu, .main-container, .sale, .product-table , .goods-line, .subscrition-map, .adds, .category-container, .social-media-container, .licence-policy{
+nav, .second-line, .logo, .main_menu, .main-container, .sale, .goods-line, .subscrition-map, .adds, .category-container, .social-media-container, .licence-policy{
 	display: flex;
 	justify-content: center;
 }
-.product-table, .subscrition-map, .adds, .recently-watched, .category-container, .social-media-container, .licence-policy, .second-line{
-	margin: 0 405px;
+.subscrition-map, .adds, .recently-watched, .category-container, .social-media-container, .licence-policy, .second-line{
+	margin: auto;
+	max-width: 1110px;
+	padding-top: 80px;
 }
 li{
 	list-style-type: none;
@@ -26,9 +28,14 @@ li:active{
 }
 h1, h2, h3, .text-logo {
 	font-weight: 700;
+	margin: 0px;
 }
-h4{
+h4, .price{
 	font-weight: 500;
+}
+.price{
+	font-size: 21px;
+	line-height: 25px;
 }
 input[type=text]{
 	font-family: Roboto, sans-serif;
@@ -51,7 +58,6 @@ a{
 input[type=button]{
 	background-color: #fff;
 	outline: none;
-	margin-left: 40px;
 	width: 170px;
 	height: 40px;
 	border: 2px solid #F13C6E;
@@ -62,6 +68,10 @@ input[type=button]{
 }
 input[type=button]:active{
 	background-color: #EFEFEF;
+}
+.callback>a{
+	white-space: nowrap;
+	margin-right: 40px;
 }
 nav>li{
 	padding: 16px 30px 0 0;
@@ -103,9 +113,14 @@ button:active{
 	padding: 20px;
 }
 .img{
-	max-width: 100%;
-	height: 604px;
-	position: relative;
+	background-image: url(img/Rectangle2.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.img2{
+	background-image: url(img/Rectangle2.png);
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 .hide{
 	display: none;
@@ -118,10 +133,7 @@ button:active{
     color: #fff;
     width: 308px
 }
-.goods-line {
-	justify-content:space-around;
-}
-.second-line, .licence-policy, .category-container {
+.second-line, .content-holder, .licence-policy, .category-container, .goods-line {
 	justify-content: space-between; 
 }
 .img-add-container{
@@ -148,17 +160,9 @@ button:active{
 	padding-right: 0px;
 }
 .sale{
+	height: 604px;
 	position: relative;
-}
-.img{
-	background-image: url(img/Rectangle2.png);
-	background-size: contain;
-	background-repeat: no-repeat;
-}
-.img2{
-	background-image: url(img/Rectangle2.png);
-	background-size: contain;
-	background-repeat: no-repeat;
+	max-width: 100%;
 }
 .description>input[type=submit]{
 	margin-top: 50px;
@@ -182,3 +186,79 @@ input[type=submit]{
 }
 input[type=submit]:active{
 	background-color: #d02c59;
+}
+.product-card{
+	background-color: #ffffff;
+    margin-right: 15px;
+    width: 255px;
+    height: 363px;
+}
+.product-card:nth-child(4){
+	margin-right: 0px;
+}
+.product-card>img, .product-card>span, .product-card>button, .price{
+	display: block;
+	margin: auto;
+	text-align: center;
+}
+.content{
+	background-color: #EFEFEF;
+}
+.goods{
+	padding-top: 38px;
+	padding-bottom: 100px;
+}
+.product-card>img{
+	padding-top: 25px;
+}
+.product-card>span, .product-card>button, .price{
+	margin-top: 20px;
+}
+.content-holder{
+	display: flex;
+	background-color: #F13C6E;
+	width: 540px;
+	height: 212px;
+	color: #fff;
+	padding: 35px 45px 35px 40px;
+}
+.subscrition{
+	margin-right: 30px;
+}
+.text-content>h3{
+	padding-bottom: 25px;
+}
+.text-content>span{
+	display: block;
+}
+.text-content>input[type=submit]{
+	margin-top: 25px;
+}
+input[type=mail]{
+	font-family: Roboto, sans-serif;
+	padding-left: 18px;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 25px;
+    width: 225px;
+    height: 35px;
+    border-radius: 30px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    color: #635757;
+}
+input[type=mail]:placeholder{
+	font-family: Roboto;
+	font-weight: 400;
+	font-size: 14px;
+	color: #C4C4C4;
+}
+input[type=mail]:focus{
+	border-style: solid;
+	border-width: 0.5px;
+	color: #333333:;
+}
+.img-content{
+	padding: 19px 0;
+}
