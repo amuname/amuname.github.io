@@ -262,3 +262,27 @@ input[type=mail]:focus{
 .img-content{
 	padding: 19px 0;
 }
+.img-add-container{
+	background-color: #fff;
+	padding: 35px 0;
+}
+.img-add-container>img{
+	margin: 0 60px;
+}
+.category-container{
+	padding: 60px 0;
+}
+.social-media>a>img{
+	padding: 15px 11px;
+	border-radius: 50%;
+	border-color: #F13C6E;
+	border-style: solid;
+	width: 28px;
+	height: 16px;
+}
+.popular-categories>ul{
+	padding: 0px;
+}
+.popular-categories>h4{
+	font-size: 22px;
+}
