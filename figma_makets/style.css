@@ -133,7 +133,7 @@ button:active{
     color: #fff;
     width: 308px
 }
-.second-line, .content-holder, .licence-policy, .category-container, .goods-line, #contt, .social-media-container {
+.second-line, .content-holder, .licence-policy, .category-container, .goods-line, .contt>nav>li, .social-media-container {
 	justify-content: space-between; 
 }
 .img-add-container{
@@ -306,6 +306,6 @@ input[type=mail]:focus{
 .social-media-container>.callback{
 	padding-top: 40px;
 }
-#contt{
+.contt>nav>li{
 	font-size: 12px;
 }
