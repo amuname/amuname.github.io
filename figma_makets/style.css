@@ -1,6 +1,24 @@
 *{
 	box-sizing: border-box;
 }
+@media screen and (min-width: 1920px) {
+/* 	body {
+		background-color:aqua
+	} */
+	.description{
+		left: 30%;
+	}
+}
+@media screen and (min-width: 2750px) {
+	.description{
+		left: 35%;
+	}
+}
+@media screen and (max-width: 1920px) {
+	.description{
+		left: 405px;
+	}
+}
 body{
 	margin: 0px;
 	font-family: 'Roboto', sans-serif;
@@ -128,10 +146,10 @@ button:active{
 }
 .description{
 	position: absolute;
-    top: 192px;
-    left: 405px;
-    color: #fff;
-    width: 308px
+	top: 192px;
+	/* left: 405px; */
+	color: #fff;
+	width: 308px;
 }
 .second-line, .content-holder, .licence-policy, .category-container, .goods-line, .contt>nav>li, .social-media-container {
 	justify-content: space-between; 
@@ -306,6 +324,12 @@ input[type=mail]:focus{
 .social-media-container>.callback{
 	padding-top: 40px;
 }
-.contt>nav>li{
+.contt>nav>li, .contt>nav>li>a{
 	font-size: 12px;
+}
+.contt>nav>li:nth-child(2){
+	padding-right: 0px;
+}
+.contt>nav>li:nth-child(1){
+	padding-right: 348px;
 }
