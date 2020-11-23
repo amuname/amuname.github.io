@@ -1,8 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>WWL Manual</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
 </head>
 <body>
+	<div class="img-cont">
+		<img src="icon.jpg" alt="wll logo">
+	</div>
+	<h1>WhatsAppWeb Launcher</h1>
+	<ul>
+		<li onclick="toMenu(1);">Настройка расширения</li>
+		<li onclick="toMenu(2);">Работа в CRM</li>
+		<li onclick="toMenu(3);">Работа в WhatsApp Web</li>
+	</ul>
+	<p>
+		Схема-инструкция по использованию расширения для браузера Google Chrome
+	</p>
+	<p>
+		После установки расширения нажмите на иконку и выполните следующие действия
+	</p>
+	<h2 id="m1">Настройка расширения</h2>
+	<div class="scr">
+		<img src="scr1.PNG" alt="img 1">
+		<p>Рис. 1.1</p>
+		<h3>
+			Задайте логин и пароль администратора расширения
+		</h3>
+		<p>
+			Для синхронизации между браузерами войдите в свою учетную запись браузера Google Chrome
+		</p>
+	</div>
+	<div class="scr">
+		<img src="scr2.PNG" alt="img 2">
+		<p>Рис. 1.2</p>
+		<h3>
+			Задайте токен CRM в поле токен
+		</h3>
+		<p onclick="toSrc3();">
+			При успешном соединении появится надпись Успешно!
+		</p>
+		<p>
+			Для синхронизации между браузерами войдите в свою учетную запись браузера Google Chrome
+		</p>
+	</div>
+	<div class="scr">
+		<img src="scr3.PNG" alt="img 3">
+		<p id="scr3">Рис. 1.3</p>
+		<h3>
+			Успешная регистрация в CRM
+		</h3>
+		<p>
+			Настройка для отправки данных в систему завершена, можно закрыть Pop-up
+		</p>
+	</div>
+	<h2 id="m2">Работа в CRM</h2>
+	<div class="scr">
+		<img src="scr4.PNG" alt="img 4">
+		<p>Рис. 2.1</p>
+		<h3>
+			Наведите на номер в разделе контакты
+		</h3>
+		<p>
+			По выбранному номеру будет открыт pop-up в нем будет предложение написать в WhatsApp Web
+		</p>
+	</div>
+	<div class="scr">
+		<img src="scr5.PNG" alt="img 5">
+		<p>Рис. 2.2</p>
+		<h3>
+			Наведите на номер в карточке в разделе контакты
+		</h3>
+		<p>
+			Не используйте номера компаний, приложенных к карточке контакта, часто такие номера не зарегестрированны в WhatsApp
+		</p>
+	</div>
+	<h2 id="m3">Работа в WhatsApp Web</h2>
+	<div class="scr">
+		<img src="scr6.PNG" alt="img 6">
+		<p>Рис. 3.1</p>
+		<h3>
+			Вид WhatsApp Web с раширением
+		</h3>
+		<p>
+			У пользователя отсутствует окно выбора диалогов, переписка будет фиксироваться даже если вкладка неактивна и диалог ведется с телефона
+		</p>
+	</div>
+	<div class="scr">
+		<img src="scr7.PNG" alt="img 7">
+		<p>Рис. 3.2</p>
+		<h3>
+			Вид WhatsApp Web с раширением
+		</h3>
+		<p>
+			У пользователя отсутствует окно выбора диалогов, переписка будет фиксироваться даже если вкладка неактивна(вкладка должна оставаться открытой) и диалог ведется с телефона
+		</p>
+	</div>
+	<div class="scr">
+		<img src="scr7.PNG" alt="img 7">
+		<p>Рис. 3.2</p>
+		<h3>
+			Сохранение диалога
+		</h3>
+		<p>
+			Все данные отправляются в описание контакта. Описание это текстовое поле, поэтому закрепляется только печатный текст и время отправки. Картинки, смайлики и документы прикреплены не будут
+		</p>
+	</div>
+	<div class="to-top" onclick="toTop();">TOP</div>
 </body>
 </html>
