@@ -20,3 +20,12 @@ function toTop() {
 	var top = document.querySelector('h1');
 	top.scrollIntoView({behavior: "smooth"});
 }
+var animEl= document.querySelector(".to-top");
+
+document.addEventListener("scroll",()=>{
+    if(scrollY>=200){
+        animEl.classList.add("visible")
+    } else{
+        animEl.classList.remove("visible")
+    }
+})
