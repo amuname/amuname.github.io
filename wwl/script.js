@@ -1,3 +1,4 @@
+var animEl;
 function toSrc3(){
 	var scr = document.querySelector('#scr3');
 	scr.scrollIntoView({behavior: "smooth"});
@@ -20,9 +21,10 @@ function toTop() {
 	var top = document.querySelector('h1');
 	top.scrollIntoView({behavior: "smooth"});
 }
-var animEl= document.querySelector(".to-top");
-
 document.addEventListener("scroll",()=>{
+	if (animEl==null||animEl==undefined||animEl!==animEl) {
+		animEl= document.querySelector(".to-top");
+	}
     if(scrollY>=200){
         animEl.classList.add("visible")
     } else{
