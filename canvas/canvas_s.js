@@ -5,15 +5,15 @@ let img_dependensies = 1.5355089
 let global_canvas_width = 1200
 
 let background_l = new Image(global_canvas_width,global_canvas_width/img_dependensies)
-background_l.src = 'C:\\Users\\AMeshcheriakov\\Downloads\\3499d12f28a741f0063ee8f2bbd711d9.jpg'
+background_l.src = './light.jpg'
 let background_d = new Image(global_canvas_width,global_canvas_width/img_dependensies)
-background_d.src = 'C:\\Users\\AMeshcheriakov\\Downloads\\old-grunge-dark-wall-with-light-black-gray-cement-wall-floor-texture-background_1962-1648.jpg'
+background_d.src = './dark.jpg'
 let blink = new Image()
-blink.src = 'C:\\Users\\AMeshcheriakov\\Desktop\\Sait\\blik.png'
+blink.src = './blik.png'
 let bolt = new Image()
-bolt.src = 'C:\\Users\\AMeshcheriakov\\Desktop\\Sait\\bolt.png'
+bolt.src = './bolt.png'
 let wood = new Image(260,200)
-wood.src = 'C:\\Users\\AMeshcheriakov\\Desktop\\Sait\\wood.jpg'
+wood.src = './wood.jpg'
 let userInput = document.getElementsByName('userImg')[0]
 const first_time = document.getElementById('first_time')
 
