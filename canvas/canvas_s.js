@@ -1,8 +1,8 @@
 'use strict'
-let canvas = document.querySelector("body > canvas")
+let canvas = document.getElementsByTagName("canvas")[0]
 
-let img_dependensies = 1.5355089
-let global_canvas_width = 1200
+let img_dependensies = 1.5
+let global_canvas_width = window.innerWidth > 1920 ? 1920 : 1200
 
 let background_l = new Image(global_canvas_width,global_canvas_width/img_dependensies)
 background_l.src = './light.jpg'
@@ -16,9 +16,10 @@ let wood = new Image(260,200)
 wood.src = './wood.jpg'
 let userInput = document.getElementsByName('userImg')[0]
 const first_time = document.getElementById('first_time')
+const loader = document.getElementById('loader')
 
 userInput.onchange = function(){
-	console.log(this.files[0]) 
+	// console.log(this.files[0]) 
 	const img = this.files[0]
 	const inputImage = new Image()
 	if (!img.type.startsWith('image/')|| img.name.endsWith('.tiff')) throw new TypeError('Wrong type of file')
@@ -188,7 +189,7 @@ function imageGenerator(
 
 
 	const scale = dWidth / dHeight == 1 ? 0.7 : dHeight/dWidth
-	console.log(scale)
+	// console.log(scale)
 	const diameter = scale*9
 	const radius = diameter /2
 	const offset = scale*35// radius
@@ -211,7 +212,6 @@ function imageGenerator(
 
 	}
 
-
 	res()
 	console.timeEnd('imgGenerator')
 
@@ -223,7 +223,8 @@ function imageGenerator(
 
 async function render(args){
 	console.time('render')
-	
+	// canvas.width = global_canvas_width
+	// canvas.height = global_canvas_width/img_dependensies
 	if(!window.bg_d_l) window.bg_d_l = background_d
 	if (!args.background_src) args.background_src = window.bg_d_l
 	window.bg_d_l = args.background_src
@@ -241,6 +242,7 @@ async function render(args){
 		parseFloat((args.background_src.width/2-sc.dWidth/2).toString().slice(0,4)),parseFloat((args.background_src.height/2-sc.dHeight/2).toString().slice(0,4)),
 		sc.dWidth,sc.dHeight,
 		blink,args.color)
+	console.log('args.first_time==true',args.first_time==true)
 	if (args.first_time==true) first_time.click()
 	console.timeEnd('render')
 
