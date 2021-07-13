@@ -21,6 +21,9 @@
 @media screen and (min-width: 1920px){
 
 }
+*{
+	box-sizing: border-box;
+}
 body{
 	background-color: #100100;
 }
@@ -79,6 +82,14 @@ label,button{
 	justify-content: space-around;
 	align-items: center;	
 }
+div.rgb{
+	position: absolute;
+    top: 285px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
 /*.width_buttons{
 	transform: translate(12em,0);
 }
@@ -99,10 +110,10 @@ label,button{
 }
 
 .rgb{
-	-webkit-animation: 5s linear 0s infinite alternate rgb;
-     -moz-animation: 5s linear 0s infinite alternate rgb;
-       -o-animation: 5s linear 0s infinite alternate rgb;
-          animation: 5s linear 0s infinite alternate rgb;
+	-webkit-animation: 6s linear 0s infinite alternate rgb;
+     -moz-animation: 6s linear 0s infinite alternate rgb;
+       -o-animation: 6s linear 0s infinite alternate rgb;
+          animation: 6s linear 0s infinite alternate rgb;
 }
 @-webkit-keyframes rgb {
 	from {
@@ -114,8 +125,11 @@ label,button{
 	66%	{ 
 		box-shadow: 7px 7px 7px 2px blue;
 	}
-	100%	{ 
-		box-shadow: 7px 5px 5px 2px red;
+	98%	{ 
+		box-shadow: 6px 6px 5px 2px red;
+	}
+	100%{
+		box-shadow: 5px 5px 5px 2px red;  
 	}  
 }
 @-moz-keyframes rgb {
@@ -128,9 +142,12 @@ label,button{
 	66%	{ 
 		box-shadow: 7px 7px 7px 2px blue;
 	}
-	100%	{ 
-		box-shadow: 7px 5px 5px 2px red;
-	}  
+	98%	{ 
+		box-shadow: 6px 6px 5px 2px red;
+	} 
+	100%{
+		box-shadow: 5px 5px 5px 2px red;  
+	}
 }
 @-o-keyframes rgb {
 	from {
@@ -142,8 +159,11 @@ label,button{
 	66%	{ 
 		box-shadow: 7px 7px 7px 2px blue;
 	}
-	100%	{ 
-		box-shadow: 7px 5px 5px 2px red;
+	98%	{ 
+		box-shadow: 6px 6px 5px 2px red;
+	}
+	100%{
+		box-shadow: 5px 5px 5px 2px red;  
 	}  
 }
 @keyframes rgb {
@@ -156,7 +176,10 @@ label,button{
 	66%	{ 
 		box-shadow: 7px 7px 7px 2px blue;
 	}
-	100%	{ 
-		box-shadow: 7px 5px 5px 2px red;
+	98%	{ 
+		box-shadow: 6px 6px 5px 2px red;
+	}
+	100%{
+		box-shadow: 5px 5px 5px 2px red;  
 	}  
 }
