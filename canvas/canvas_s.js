@@ -200,8 +200,6 @@ function imageGenerator(
 	const bolt_dy_top = dy+offset -radius
 	const bolt_dy_bottom  = dy+dHeight-offset -radius
 
-	ctx.shadowBlur = global_canvas_width/250
-
 	ctx.drawImage(bolt,bolt_dx_first, bolt_dy_top, diameter,diameter)
 	ctx.drawImage(bolt,bolt_dx_last, bolt_dy_top, diameter,diameter)
 	ctx.drawImage(bolt,bolt_dx_first, bolt_dy_bottom, diameter,diameter)
