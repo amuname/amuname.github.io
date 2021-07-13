@@ -2,7 +2,7 @@
 let canvas = document.getElementsByTagName("canvas")[0]
 
 let img_dependensies = 1.5
-let global_canvas_width = window.innerWidth > 1920 ? 1920 : 1200
+let global_canvas_width = window.innerWidth /*> 1920 ? 1920 : 1200*//* document.getElementsByClassName('main-container')[0].width*/
 
 let background_l = new Image(global_canvas_width,global_canvas_width/img_dependensies)
 background_l.src = './light.jpg'
@@ -134,7 +134,7 @@ function imageGenerator(
 	canvas.width = slider_img.width
 	canvas.height = slider_img.height
 	const ctx = canvas.getContext('2d')
-	const ctx1 = canvas.getContext('2d')
+	// const ctx1 = canvas.getContext('2d')
 
 	ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -143,25 +143,43 @@ function imageGenerator(
 	ctx.shadowColor = '#232425'
 	ctx.shadowBlur = global_canvas_width/32
 
-	ctx.fillStyle = '#ffffff'
-	ctx.fillRect(dx,dy,dWidth,dHeight)
+	if (color!=='rgb') {
 
-	ctx.shadowColor = color
-	ctx.shadowBlur = global_canvas_width/53.33
+		ctx.fillStyle = '#ffffff'
+		ctx.fillRect(dx,dy,dWidth,dHeight)
 
-	ctx.fillStyle = '#ffffff'
-	ctx.fillRect(dx,dy,dWidth,dHeight)
+		ctx.shadowColor = color
+		ctx.shadowBlur = global_canvas_width/53.33
 
-	// ctx.shadowColor = 'green'
-	ctx.shadowOffsetY = global_canvas_width/160
-	ctx.shadowOffsetX = global_canvas_width/160
-	ctx.shadowBlur = global_canvas_width/53.33
-	// ctx.fillStyle = '#7fffd40f'
-	ctx.fillRect(dx,dy,dWidth,dHeight)
+		ctx.fillStyle = '#ffffff'
+		ctx.fillRect(dx,dy,dWidth,dHeight)
 
-	ctx.shadowOffsetY = 0
-	ctx.shadowOffsetX = 0
-	ctx.shadowBlur = 0
+		// ctx.shadowColor = 'green'
+		ctx.shadowOffsetY = global_canvas_width/160
+		ctx.shadowOffsetX = global_canvas_width/160
+		ctx.shadowBlur = global_canvas_width/53.33
+		// ctx.fillStyle = '#7fffd40f'
+		ctx.fillRect(dx,dy,dWidth,dHeight)
+
+		ctx.shadowOffsetY = 0
+		ctx.shadowOffsetX = 0
+		ctx.shadowBlur = 0
+
+	} else {
+		const start_offset_left = canvas.offsetLeft
+		const start_offset_top = canvas.offsetTop
+		const rgb = document.createElement('div')
+		rgb.style.position = 'absolute'
+		rgb.style.marginLeft = `${/*start_offset_left+*/dx}px`
+		rgb.style.marginTop = `${/*start_offset_top+*/dy}px`
+		rgb.style.width = `${dWidth}px`
+		rgb.style.height = `${dHeight}px`
+
+		rgb.classList.add('rgb')
+		console.log(rgb)
+		document.getElementsByClassName('canvas_and_prefs_container')[0].appendChild(rgb)
+	}
+
 
 	if(user_img){
 		ctx.drawImage(
