@@ -5,33 +5,62 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
 	<style>
+		.canvas_and_prefs_container{
+			box-sizing: border-box;
+			display: flex;
+			margin: 0 auto;
+			padding:2em ;
+		}
 		canvas{
-			width: 1000px;
+			width: 100%;
+		}
+		@media screen and (max-width: 320){
+			
+		}
+		@media screen and (max-width: 375){
+
+		}
+		@media screen and (max-width: 425){
+
+		}
+		@media screen and (max-width: 768){
+
+		}
+		@media screen and (max-width: 1024){
+
+		}
+		@media screen and (min-width: 1440){
+
+		}
+		@media screen and (min-width: 1920){
+
 		}
 	</style>
 </head>
 <body>
-	<input type="file" name="userImg">
-	<div class="prefs">
-		<button id="first_time" onclick="
-			render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,w_h:1.333})">40x30</button>
-		<button onclick="
-			render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,w_h:1})">50X50</button>
-		<button onclick="
-			render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,w_h:1.5})">90X60</button>
-	</div>
+	<div class="canvas_and_prefs_container">
+		<input type="file" name="userImg">
+		<div class="prefs">
+			<button id="first_time" onclick="
+				render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,w_h:1.333})">40x30</button>
+			<button onclick="
+				render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,w_h:1})">50X50</button>
+			<button onclick="
+				render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,w_h:1.5})">90X60</button>
+		</div>
 
-	<canvas></canvas>
-	<div class="prefs">
-		<button onclick="render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,color:'#1C76C2'})">blue</button>
-		<button onclick="render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,color:'#a6b1b0'})">white</button> 
-		<button onclick="render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,color:'#B61F4E'})">pink</button>
-	</div>
+		<canvas></canvas>
+		<div class="prefs">
+			<button onclick="render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,color:'#1C76C2'})">blue</button>
+			<button onclick="render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,color:'#a6b1b0'})">white</button> 
+			<button onclick="render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,color:'#B61F4E'})">pink</button>
+		</div>
 
-	<div class="prefs">
-		<button onclick="render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,background_src:background_l})">light</button>
-		<button onclick="render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,background_src:background_d})">dark</button>
-	</div>
-	<script src=".\canvas_s.js"></script>
+		<div class="prefs">
+			<button onclick="render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,background_src:background_l})">light</button>
+			<button onclick="render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,background_src:background_d})">dark</button>
+		</div>
+	</div>		
+	<script src="./canvas_s.js"></script>
 </body>
 </html>
