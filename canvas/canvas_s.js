@@ -143,43 +143,25 @@ function imageGenerator(
 	ctx.shadowColor = '#232425'
 	ctx.shadowBlur = global_canvas_width/32
 
-	if (color!=='rgb') {
+	ctx.fillStyle = '#ffffff'
+	ctx.fillRect(dx,dy,dWidth,dHeight)
 
-		ctx.fillStyle = '#ffffff'
-		ctx.fillRect(dx,dy,dWidth,dHeight)
+	ctx.shadowColor = color
+	ctx.shadowBlur = global_canvas_width/53.33
 
-		ctx.shadowColor = color
-		ctx.shadowBlur = global_canvas_width/53.33
-
-		ctx.fillStyle = '#ffffff'
-		ctx.fillRect(dx,dy,dWidth,dHeight)
+	ctx.fillStyle = '#ffffff'
+	ctx.fillRect(dx,dy,dWidth,dHeight)
 
 		// ctx.shadowColor = 'green'
-		ctx.shadowOffsetY = global_canvas_width/160
-		ctx.shadowOffsetX = global_canvas_width/160
-		ctx.shadowBlur = global_canvas_width/53.33
+	ctx.shadowOffsetY = global_canvas_width/160
+	ctx.shadowOffsetX = global_canvas_width/160
+	ctx.shadowBlur = global_canvas_width/53.33
 		// ctx.fillStyle = '#7fffd40f'
-		ctx.fillRect(dx,dy,dWidth,dHeight)
+	ctx.fillRect(dx,dy,dWidth,dHeight)
 
-		ctx.shadowOffsetY = 0
-		ctx.shadowOffsetX = 0
-		ctx.shadowBlur = 0
-
-	} else {
-		const start_offset_left = canvas.offsetLeft
-		const start_offset_top = canvas.offsetTop
-		const rgb = document.createElement('div')
-		rgb.style.position = 'absolute'
-		rgb.style.marginLeft = `${/*start_offset_left+*/dx}px`
-		rgb.style.marginTop = `${/*start_offset_top+*/dy}px`
-		rgb.style.width = `${dWidth}px`
-		rgb.style.height = `${dHeight}px`
-
-		rgb.classList.add('rgb')
-		console.log(rgb)
-		document.getElementsByClassName('canvas_and_prefs_container')[0].appendChild(rgb)
-	}
-
+	ctx.shadowOffsetY = 0
+	ctx.shadowOffsetX = 0
+	ctx.shadowBlur = 0
 
 	if(user_img){
 		ctx.drawImage(
@@ -239,6 +221,11 @@ function imageGenerator(
 
 async function render(args){
 	console.time('render')
+	
+
+	if (args.) {}// надо тут проверять был ли вызван пользователем или интервалом
+
+
 	// canvas.width = global_canvas_width
 	// canvas.height = global_canvas_width/img_dependensies
 	if(!window.bg_d_l) window.bg_d_l = background_d
@@ -266,3 +253,26 @@ async function render(args){
 
 window.onload = render.bind(this,
 		{inputImage:wood,inputImage_width:wood.width,inputImage_height:wood.height,color:'#1C76C2'})
+
+
+// !!!!!!!!!!!!!!! RGB EVENT HANDLER
+
+document.getElementById('rgb').addEventListener('click',intervalRgbBlinking)
+
+// canvas.addEventListener('rgb-stop',intervalRgbBlinking)
+
+
+function intervalRgbBlinking(e){
+	console.log(e)
+	if (e.type=='rgb-start') {
+		clearInterval(window.timer)
+		const timer = setInterval(render)
+		window.timer = timer	
+	}
+	if (e.type=='rgb-stop') {
+
+	}
+
+}
+
+
