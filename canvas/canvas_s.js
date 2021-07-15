@@ -223,7 +223,7 @@ async function render(args){
 	console.time('render')
 	
 
-	if (args.) {}// надо тут проверять был ли вызван пользователем или интервалом
+	if (args/*.*/) {}// надо тут проверять был ли вызван пользователем или интервалом
 
 
 	// canvas.width = global_canvas_width
