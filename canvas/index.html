@@ -42,7 +42,7 @@
 				<button id="pink" onclick="render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,color:'#B61F4E'})">PINK</button>
 				<button id="blue" onclick="render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,color:'#1C76C2'})">BLUE</button>
 				<button id="white" onclick="render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,color:'#a6b1b0'})">WHITE</button> 
-				<button id="rgb" class="rgb" >RGB</button> 
+				<button id="rgb" class="rgb" onclick="document.dispatchEvent(new Event('rgb-start'))">RGB</button> 
 			</div>
 		</div>
 		</div>
