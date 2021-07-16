@@ -21,27 +21,25 @@ const loader = document.getElementById('loader')
 userInput.onchange = function(){
 	// console.log(this.files[0]) 
 	const img = this.files[0]
-	const inputImage = new Image()
+	window.userImg = new Image()
 	if (!img.type.startsWith('image/')|| img.name.endsWith('.tiff')) throw new TypeError('Wrong type of file')
 	if (FileReader) {
         const fr = new FileReader()
         fr.onload = ()=> {
-            inputImage.onload = function(){
+            window.userImg.onload = function(){
             	const inputImageAspectRatio = this.width / this.height
-            	let i =window.userImg = /*document.createElement('img')*/ new Image()
-            	i.src = this.src
-            	i.width = this.width
-            	i.height = this.height
-            	render({inputImage:i,inputImage_width:i.height,inputImage_height:i.width,first_time:true})
+            	window.userImg.width = this.width
+            	window.userImg.height = this.height
+            	render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,first_time:true})
             }
-            inputImage.src = fr.result
+            window.userImg.src = fr.result
         }
         fr.readAsDataURL(img)
     }
 
     // Not supported
     else {
-        // fallback -- perhaps submit the input to an iframe and temporarily store
+        // callback -- perhaps submit the input to an iframe and temporarily store
         // them on the server until the user's session ends.
     }
 
@@ -79,7 +77,7 @@ function reCount(inputImage,inputImage_width,inputImage_height,aspectRatio){
 	const outputY = (outputHeight - inputHeight) * .5;
 
             // создать холст, на котором будет представлено выходное изображение.
-	const outputImage = canvas
+	const outputImage = document.createElement('canvas');
 
             // установить его на тот же размер, что и изображение.
 	outputImage.width = outputWidth;
@@ -91,6 +89,7 @@ function reCount(inputImage,inputImage_width,inputImage_height,aspectRatio){
 		userImg.src = inputImage.src
         userImg.width = inputImage.width
         userImg.height = inputImage.height
+        console.timeEnd('reCount')
 		res({
 			i:inputImage,
 			dWidth:width_new_image,
@@ -104,17 +103,15 @@ function reCount(inputImage,inputImage_width,inputImage_height,aspectRatio){
 	const img = new Image(width_new_image,width_new_image/aspectRatio)
 	const w_more_than_20_k = inputImage_width >2000 || inputImage_width >2000 ? 0.2 : 0.85
 	img.src = outputImage.toDataURL("image/jpeg",w_more_than_20_k)
-	// console.log(img)
-	res( {
-		i:img,
-		// sx:0,
-		// sy:0,
-		// sWidth:0,
-		// sHeight:0,
-		dWidth:img.width,
-		dHeight:img.height
-	})
-	console.timeEnd('reCount')
+	img.onload = ()=>{
+		console.timeEnd('reCount')
+		res( {
+			i:img,
+			dWidth:width_new_image,
+			dHeight:width_new_image/aspectRatio
+		})
+	}
+	
 
 	})
 }
@@ -122,8 +119,6 @@ function reCount(inputImage,inputImage_width,inputImage_height,aspectRatio){
 
 function imageGenerator(
 	canvas,slider_img,user_img,
-	// sx,sy,
-	// sWidth,sHeight,
 	dx,dy,
 	dWidth,dHeight,
 	blink,color){
@@ -163,17 +158,16 @@ function imageGenerator(
 	ctx.shadowOffsetX = 0
 	ctx.shadowBlur = 0
 
-	if(user_img){
-		ctx.drawImage(
+	if(!user_img) user_img = wood
+	
+	ctx.drawImage(
 		user_img, // image
-	 	dx, // dx
-	 	dy, // dy
-	 	dWidth, // dWidth
-	 	dHeight // dHeight
-	 	)
-	} else {
+		dx, // dx
+		dy, // dy
+		dWidth, // dWidth
+		dHeight // dHeight
+	)
 
-	}
 
 	ctx.shadowOffsetY = 0
 	ctx.shadowOffsetX = 0
@@ -185,7 +179,6 @@ function imageGenerator(
 	 	dWidth, 
 	 	dHeight 
 	 	)
-
 
 
 	const scale = dWidth / dHeight == 1 ? 0.7 : dHeight/dWidth
@@ -221,10 +214,6 @@ function imageGenerator(
 
 async function render(args){
 	console.time('render')
-	
-
-	if (args/*.*/) {}// надо тут проверять был ли вызван пользователем или интервалом
-
 
 	// canvas.width = global_canvas_width
 	// canvas.height = global_canvas_width/img_dependensies
@@ -237,7 +226,8 @@ async function render(args){
 	if(!window.default) window.default = '#1C76C2'
 	if (!args.color) args.color = window.default
 	window.default = args.color
-	const sc = await reCount(args.inputImage,args.inputImage_width,args.inputImage_height,args.w_h)
+	let sc = await reCount(args.inputImage,args.inputImage_width,args.inputImage_height,args.w_h)
+
 	await imageGenerator(
 		canvas,args.background_src,sc.i,
 		// sc.sx,sc.sy,
@@ -245,33 +235,40 @@ async function render(args){
 		parseFloat((args.background_src.width/2-sc.dWidth/2).toString().slice(0,4)),parseFloat((args.background_src.height/2-sc.dHeight/2).toString().slice(0,4)),
 		sc.dWidth,sc.dHeight,
 		blink,args.color)
-	console.log('args.first_time==true',args.first_time==true)
-	if (args.first_time==true) first_time.click()
+
 	console.timeEnd('render')
 
+	if (args.rgb) {
+		window.last_timeout = setTimeout(intervalRgbBlinking,args.rgb)
+	} else {
+		window.rgb_is_registred = false
+		clearTimeout(window.last_timeout)
+	}
 }
 
 window.onload = render.bind(this,
 		{inputImage:wood,inputImage_width:wood.width,inputImage_height:wood.height,color:'#1C76C2'})
 
+document.addEventListener('rgb-start',intervalRgbBlinking)
 
-// !!!!!!!!!!!!!!! RGB EVENT HANDLER
+async function intervalRgbBlinking(e){
 
-document.getElementById('rgb').addEventListener('click',intervalRgbBlinking)
-
-// canvas.addEventListener('rgb-stop',intervalRgbBlinking)
-
-
-function intervalRgbBlinking(e){
-	console.log(e)
-	if (e.type=='rgb-start') {
-		clearInterval(window.timer)
-		const timer = setInterval(render)
-		window.timer = timer	
-	}
-	if (e.type=='rgb-stop') {
-
-	}
+	if (window.rgb_is_registred && e?.type=='rgb-start') return
+	window.rgb_is_registred = true
+	if(window.rgb_last_color == undefined) {
+		window.rgb_last_color = '#ff0000'
+		await render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,color:window.rgb_last_color,rgb:1000})
+		
+	} else
+	if(window.rgb_last_color == '#ff0000') {
+		window.rgb_last_color = '#008000'
+		await render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,color:window.rgb_last_color,rgb:1000})
+	
+	} else	
+	if(window.rgb_last_color == '#008000') {
+		window.rgb_last_color = undefined
+		await render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,color:'#0000ff',rgb:1000})
+	} 
 
 }
 
