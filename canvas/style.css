@@ -117,69 +117,69 @@ div.rgb{
 }
 @-webkit-keyframes rgb {
 	from {
-		box-shadow: 5px 5px 5px 2px red; 
+		box-shadow: 5px 5px 5px 2px #ff0000; 
 	} 
 	33%	{ 
-		box-shadow: 7px 7px 7px 2px green; 
+		box-shadow: 7px 7px 7px 2px #008000; 
 	}
 	66%	{ 
-		box-shadow: 7px 7px 7px 2px blue;
+		box-shadow: 7px 7px 7px 2px #0000ff;
 	}
 	98%	{ 
-		box-shadow: 6px 6px 5px 2px red;
+		box-shadow: 6px 6px 5px 2px #ff0000;
 	}
 	100%{
-		box-shadow: 5px 5px 5px 2px red;  
+		box-shadow: 5px 5px 5px 2px #ff0000;  
 	}  
 }
 @-moz-keyframes rgb {
 	from {
-		box-shadow: 5px 5px 5px 2px red; 
+		box-shadow: 5px 5px 5px 2px #ff0000; 
 	} 
 	33%	{ 
-		box-shadow: 7px 7px 7px 2px green; 
+		box-shadow: 7px 7px 7px 2px #008000; 
 	}
 	66%	{ 
-		box-shadow: 7px 7px 7px 2px blue;
+		box-shadow: 7px 7px 7px 2px #0000ff;
 	}
 	98%	{ 
-		box-shadow: 6px 6px 5px 2px red;
+		box-shadow: 6px 6px 5px 2px #ff0000;
 	} 
 	100%{
-		box-shadow: 5px 5px 5px 2px red;  
+		box-shadow: 5px 5px 5px 2px #ff0000;  
 	}
 }
 @-o-keyframes rgb {
 	from {
-		box-shadow: 5px 5px 5px 2px red; 
+		box-shadow: 5px 5px 5px 2px #ff0000; 
 	} 
 	33%	{ 
-		box-shadow: 7px 7px 7px 2px green; 
+		box-shadow: 7px 7px 7px 2px #008000; 
 	}
 	66%	{ 
-		box-shadow: 7px 7px 7px 2px blue;
+		box-shadow: 7px 7px 7px 2px #0000ff;
 	}
 	98%	{ 
-		box-shadow: 6px 6px 5px 2px red;
+		box-shadow: 6px 6px 5px 2px #ff0000;
 	}
 	100%{
-		box-shadow: 5px 5px 5px 2px red;  
+		box-shadow: 5px 5px 5px 2px #ff0000;  
 	}  
 }
 @keyframes rgb {
 	from {
-		box-shadow: 5px 5px 5px 2px red; 
+		box-shadow: 5px 5px 5px 2px #ff0000; 
 	} 
 	33%	{ 
-		box-shadow: 7px 7px 7px 2px green; 
+		box-shadow: 7px 7px 7px 2px #008000; 
 	}
 	66%	{ 
-		box-shadow: 7px 7px 7px 2px blue;
+		box-shadow: 7px 7px 7px 2px #0000ff;
 	}
 	98%	{ 
-		box-shadow: 6px 6px 5px 2px red;
+		box-shadow: 6px 6px 5px 2px #ff0000;
 	}
 	100%{
-		box-shadow: 5px 5px 5px 2px red;  
+		box-shadow: 5px 5px 5px 2px #ff0000;  
 	}  
 }
