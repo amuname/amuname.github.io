@@ -73,7 +73,7 @@ label,button{
 }
 .label-container{
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	/*transform: translate(0,9em);*/
 }
 /*#download{
