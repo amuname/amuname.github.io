@@ -2,7 +2,7 @@
 let canvas = document.getElementsByTagName("canvas")[0]
 
 let img_dependensies = 1.5
-let global_canvas_width = window.innerWidth /*> 1920 ? 1920 : 1200*//* document.getElementsByClassName('main-container')[0].width*/
+let global_canvas_width = 1920
 
 let background_l = new Image(global_canvas_width,global_canvas_width/img_dependensies)
 background_l.src = './light.jpg'
@@ -252,24 +252,47 @@ window.onload = render.bind(this,
 document.addEventListener('rgb-start',intervalRgbBlinking)
 
 async function intervalRgbBlinking(e){
+	const set_of_colors = [
+	'#ff0000',//
+	'#f22f00', '#e54200', '#d94f00',
+	'#cd5800',//
+	'#be6100', '#b06800', '#a26e00',
+	'#957200',//
+	'#887500', '#7a7800', '#6b7b00',
+	'#5b7d00',//
+	'#4e7e00', '#3f7f00', '#2b7f00',
+	'#008000',//
+	'#008128', '#00813f', '#008151',
+	'#00805f',//
+	'#008480', '#0085a3', '#0082be',
+	'#007bcc',//
+	'#0079db', '#0075e8', '#0071f4',
+	'#006bff',//
+	'#005bff', '#0049ff', '#0031ff',
+	'#0000ff',//
+	'#7100ee', '#9800df', '#b200d0',
+	'#c500c3',//
+	'#d900b2', '#e800a1', '#f30090',
+	'#fb0080',//
+	'#fe0072', '#ff0063', '#ff0054',
+	'#ff0045',//
+	]
+		
+	window.next_rgb_color = window.next_rgb_color>= set_of_colors.length ? 0 : window.next_rgb_color+1 || 0
+	const next_color_rgb = set_of_colors[window.next_rgb_color]
 
 	if (window.rgb_is_registred && e?.type=='rgb-start') return
 	window.rgb_is_registred = true
-	if(window.rgb_last_color == undefined) {
-		window.rgb_last_color = '#ff0000'
-		await render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,color:window.rgb_last_color,rgb:1000})
+	await render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,color:next_color_rgb,rgb:100})
 		
-	} else
-	if(window.rgb_last_color == '#ff0000') {
-		window.rgb_last_color = '#008000'
-		await render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,color:window.rgb_last_color,rgb:1000})
-	
-	} else	
-	if(window.rgb_last_color == '#008000') {
-		window.rgb_last_color = undefined
-		await render({inputImage:window.userImg,inputImage_width:window.userImg.width,inputImage_height:window.userImg.height,color:'#0000ff',rgb:1000})
-	} 
-
 }
 
+
+function download() {
+	const a = document.createElement('a')
+	a.setAttribute('download', 'previev.jpg');
+  	a.setAttribute('href', canvas.toDataURL("image/jpg").replace("image/jpg", "image/octet-stream"))
+	a.click()	
+
+}
 
