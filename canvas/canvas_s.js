@@ -203,8 +203,8 @@ function imageGenerator(
 
 	}
 
-	res()
 	console.timeEnd('imgGenerator')
+	res()
 
 	})
 
