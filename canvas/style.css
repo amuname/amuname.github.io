@@ -73,9 +73,11 @@ label,button{
 }
 .label-container{
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	/*transform: translate(0,9em);*/
+	width: 100%;
 }
+
 /*#download{
 	transform: translate(0,-10.5em);
 }*/
