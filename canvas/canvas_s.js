@@ -47,9 +47,9 @@ userInput.onchange = function(){
 
 
 function reCount(inputImage,inputImage_width,inputImage_height,aspectRatio){
-	console.time('reCount')
 	// console.log(inputImage_width,inputImage_height)
 	return new Promise((res,rej)=>{
+	console.time('reCount')
 
 	let width_new_image = global_canvas_width/3
 	if(aspectRatio== 1) width_new_image = global_canvas_width/2.96 
@@ -104,6 +104,7 @@ function reCount(inputImage,inputImage_width,inputImage_height,aspectRatio){
 	const w_more_than_20_k = inputImage_width >2000 || inputImage_width >2000 ? 0.2 : 0.85
 	img.src = outputImage.toDataURL("image/jpeg",w_more_than_20_k)
 	img.onload = ()=>{
+		outputImage.remove()
 		console.timeEnd('reCount')
 		res( {
 			i:img,
