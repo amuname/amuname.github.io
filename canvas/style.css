@@ -1,26 +1,4 @@
-@media screen and (max-width: 320px){
-	/*.main-container{
-		width: 320px;
-	}*/
-}
-@media screen and (max-width: 375px){
 
-}
-@media screen and (max-width: 425px){
-
-}
-@media screen and (max-width: 768px){
-
-}
-@media screen and (max-width: 1024px){
-
-}
-@media screen and (min-width: 1440px){
-
-}
-@media screen and (min-width: 1920px){
-
-}
 *{
 	box-sizing: border-box;
 }
@@ -42,7 +20,7 @@ body{
 }
 canvas{
 	width: 70%;
-	height: 70%;
+	/*height: 70%;*/
 	padding: 0 2em;
 }
 input[type=file]{
@@ -187,4 +165,34 @@ div.rgb{
 	100%{
 		box-shadow: 5px 5px 5px 2px #ff0000;  
 	}  
+}
+@media screen and (max-width: 320px){
+	/*.main-container{
+		width: 320px;
+	}*/
+}
+@media screen and (max-width: 375px){
+
+}
+@media screen and (max-width: 425px){
+
+}
+@media screen and (max-width: 768px){
+	canvas {
+    width: 115%;
+  }
+  .width_buttons{
+  	transform: translate(11em);
+  }
+  .color-buttons{
+  	transform: translate(-11em);
+  }
+@media screen and (max-width: 1024px){
+
+}
+@media screen and (min-width: 1440px){
+
+}
+@media screen and (min-width: 1920px){
+
 }
