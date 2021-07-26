@@ -174,9 +174,7 @@ div.rgb{
 @media screen and (max-width: 375px){
 
 }
-@media screen and (max-width: 425px){
 
-}
 @media screen and (max-width: 768px){
 	canvas {
     width: 115%;
@@ -187,6 +185,18 @@ div.rgb{
   .color-buttons{
   	transform: translate(-11em);
   }
+}
+@media screen and (max-width: 640px){
+	.width_buttons{
+  	transform: translate(9em);
+  }
+  .color-buttons{
+  	transform: translate(-9em);
+  }
+  .color-buttons button, .width_buttons button{
+  	width: 90px
+  }
+}
 @media screen and (max-width: 1024px){
 
 }
