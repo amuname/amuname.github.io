@@ -19,10 +19,16 @@ const first_time = document.getElementById('first_time')
 const loader = document.getElementById('loader')
 
 userInput.onchange = function(){
-	// console.log(this.files[0]) 
 	const img = this.files[0]
 	window.userImg = new Image()
-	if (!img.type.startsWith('image/')|| img.name.endsWith('.tiff')) throw new TypeError('Wrong type of file')
+	if (!img.type.startsWith('image/')|| img.name.endsWith('.tiff') || img.type == undefined) {
+		wrongTypeOfFile()
+		return
+	}
+	if (img.size> 8588608) {
+		largeImage()
+		return
+	}
 	if (FileReader) {
         const fr = new FileReader()
         fr.onload = ()=> {
@@ -69,7 +75,7 @@ function reCount(inputImage,inputImage_width,inputImage_height,aspectRatio){
     if (inputImageAspectRatio > aspectRatio) {
         outputWidth = inputHeight * aspectRatio;
     } else if (inputImageAspectRatio < aspectRatio) {
-        outputHeight = inputHeight / aspectRatio;
+        outputHeight = outputWidth / aspectRatio;
     }
 
             // рассчитать положение для рисования изображения в точке
@@ -100,18 +106,12 @@ function reCount(inputImage,inputImage_width,inputImage_height,aspectRatio){
             // нарисуем наше изображение в точках 0, 0 на холсте.
 	const ctx = outputImage.getContext('2d');
 	ctx.drawImage(inputImage, outputX, outputY);
-	const img = new Image(width_new_image,width_new_image/aspectRatio)
-	const w_more_than_20_k = inputImage_width >2000 || inputImage_width >2000 ? 0.2 : 0.85
-	img.src = outputImage.toDataURL("image/jpeg",w_more_than_20_k)
-	img.onload = ()=>{
-		outputImage.remove()
-		console.timeEnd('reCount')
-		res( {
-			i:img,
-			dWidth:width_new_image,
-			dHeight:width_new_image/aspectRatio
-		})
-	}
+	console.timeEnd('reCount')
+	res( {
+		i:outputImage,
+		dWidth:width_new_image,
+		dHeight:width_new_image/aspectRatio
+	})
 	
 
 	})
@@ -248,7 +248,7 @@ async function render(args){
 }
 
 window.onload = render.bind(this,
-		{inputImage:wood,inputImage_width:wood.width,inputImage_height:wood.height,color:'#1C76C2'})
+		{inputImage:wood,inputImage_width:260,inputImage_height:200,color:'#1C76C2'})
 
 document.addEventListener('rgb-start',intervalRgbBlinking)
 
@@ -289,11 +289,18 @@ async function intervalRgbBlinking(e){
 }
 
 
-function download() {
+async function download() {
 	const a = document.createElement('a')
 	a.setAttribute('download', 'previev.jpg');
-  	a.setAttribute('href', canvas.toDataURL("image/jpg").replace("image/jpg", "image/octet-stream"))
+  	a.setAttribute('href', canvas.toDataURL("image/jpg"))
 	a.click()	
-
 }
 
+function largeImage(){
+	if (t390_showPopup) t390_showPopup('338070912')
+	return
+}
+function wrongTypeOfFile(){
+	if (t390_showPopup) t390_showPopup('338061931')
+	return
+}
